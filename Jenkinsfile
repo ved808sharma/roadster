@@ -2,7 +2,7 @@ pipeline {
     agent any
      tools { 
         maven 'maven-3.6.0' 
-       // jdk 'jdk8' 
+        jdk 'jdk11' 
     }
     stages {
         stage('Build & Unit Test') {
