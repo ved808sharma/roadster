@@ -2,19 +2,32 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Build & Unit Test') {
             steps {
-                echo 'Building..'
+                sh '''
+                    #!/bin/bash
+                    mvn clean verify
+                '''
             }
         }
-        stage('Test') {
+        stage('Code Scan') {
             steps {
-                echo 'Testing..'
+                echo 'Scanning the code using sonar qube..'
             }
         }
-        stage('Deploy') {
+        stage('Image build') {
             steps {
-                echo 'Deploying....'
+                echo 'building the image....'
+            }
+        }
+        stage('Image Scan') {
+            steps {
+                echo 'building the image....'
+            }
+        }
+        stage('Image Push') {
+            steps {
+                echo 'building the image....'
             }
         }
     }
