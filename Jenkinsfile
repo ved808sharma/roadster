@@ -7,6 +7,7 @@ pipeline {
     stages {
         stage('Build & Unit Test') {
             steps {
+                sh 'java --version'
                 sh 'mvn clean verify'
             }
         }
