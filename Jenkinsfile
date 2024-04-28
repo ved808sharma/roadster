@@ -4,10 +4,7 @@ pipeline {
     stages {
         stage('Build & Unit Test') {
             steps {
-                sh '''
-                    #!/bin/bash
-                    mvn clean verify
-                '''
+                sh 'mvn clean verify'
             }
         }
         stage('Code Scan') {
